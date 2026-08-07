@@ -101,6 +101,124 @@ void sun()
     glColor3ub(255, 213, 79);
     circle(80.0395857191211, 73.0939546426522,81.7936238977046, 70.7134742574314);
 }
+
+void hill()
+{
+    //left hill
+    glColor3ub(160, 105, 55);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0,40);
+    glVertex2f(20, 70);
+    glVertex2f(34, 40);
+    glEnd();
+
+    //mid hill
+    glBegin(GL_TRIANGLES);
+    glVertex2f(35, 40);
+    glVertex2f(50, 70);
+    glVertex2f(70, 40);
+    glEnd();
+
+    //right hill
+    glBegin(GL_TRIANGLES);
+    glVertex2f(70, 40);
+    glVertex2f(80, 60);
+    glVertex2f(100, 40);
+    glEnd();
+}
+
+void atcTower()
+{
+    glColor3ub(240, 221, 175);
+    glBegin(GL_QUADS);
+    glVertex2f(37.9904162531719, 55.882930098799);
+    glVertex2f(38, 40);
+    glVertex2f(48, 40);
+    glVertex2f(48.0155503041018, 55.8335579990934);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(37.9904162531719, 55.882930098799);
+    glVertex2f(38, 40);
+    glVertex2f(48, 40);
+    glVertex2f(48.0155503041018, 55.8335579990934);
+    glEnd();
+
+    glColor3ub(135, 129, 112);
+    glBegin(GL_QUADS);
+    glVertex2f(38.0012052297718, 57.8461803347203);
+    glVertex2f(37.9904162531719, 55.882930098799);
+    glVertex2f(48.0155503041018, 55.8335579990934);
+    glVertex2f(48.0012052297718, 57.8461803347203);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(38.0012052297718, 57.8461803347203);
+    glVertex2f(37.9904162531719, 55.882930098799);
+    glVertex2f(48.0155503041018, 55.8335579990934);
+    glVertex2f(48.0012052297718, 57.8461803347203);
+    glEnd();
+
+    glColor3ub(217, 82, 117);
+    glBegin(GL_QUADS);
+    glVertex2f(37.0012052297718, 59.8461803347203);
+    glVertex2f(38.0012052297718, 57.8461803347203);
+    glVertex2f(48.0012052297718, 57.8461803347203);
+    glVertex2f(49.0012052297718, 59.8461803347203);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(37.0012052297718, 59.8461803347203);
+    glVertex2f(38.0012052297718, 57.8461803347203);
+    glVertex2f(48.0012052297718, 57.8461803347203);
+    glVertex2f(49.0012052297718, 59.8461803347203);
+    glEnd();
+
+    glColor3ub(204, 173, 122);
+    glBegin(GL_QUADS);
+    glVertex2f(37.0012052297718, 60.8461803347203);
+    glVertex2f(37.0012052297718, 59.8461803347203);
+    glVertex2f(49.0012052297718, 59.8461803347203);
+    glVertex2f(49.0012052297718, 60.8461803347203);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(37.0012052297718, 60.8461803347203);
+    glVertex2f(37.0012052297718, 59.8461803347203);
+    glVertex2f(49.0012052297718, 59.8461803347203);
+    glVertex2f(49.0012052297718, 60.8461803347203);
+    glEnd();
+
+    glColor3ub(66, 98, 135);
+    glBegin(GL_QUADS);
+    glVertex2f(39.0012052297718, 61.8461803347203);
+    glVertex2f(39.0012052297718, 60.8461803347203);
+    glVertex2f(47.0012052297718, 60.8461803347203);
+    glVertex2f(47.0012052297718, 61.8461803347203);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(39.0012052297718, 61.8461803347203);
+    glVertex2f(39.0012052297718, 60.8461803347203);
+    glVertex2f(47.0012052297718, 60.8461803347203);
+    glVertex2f(47.0012052297718, 61.8461803347203);
+    glEnd();
+
+    glColor3ub(0,0,0);
+    glBegin(GL_QUADS);
+    glVertex2f(42.5012052297718, 64.3461803347203);
+    glVertex2f(42.5012052297718, 61.8461803347203);
+    glVertex2f(43.5012052297718, 61.8461803347203);
+    glVertex2f(43.5012052297718, 64.3461803347203);
+    glEnd();
+    glColor3ub(255,0,0);
+    circle(43.0012052297718, 65.3461803347203,43.1213369923815, 64.3461803347203);
+
+
+
+
+}
+
 void airportGround()
 {
     glColor3ub(170, 170, 170);
@@ -378,6 +496,8 @@ void display()
     cloud1();
     cloud2();
     cloud3();
+    hill();
+    atcTower();
 
     airportGround();
     runway();
