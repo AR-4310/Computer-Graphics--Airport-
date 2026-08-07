@@ -6,7 +6,7 @@ const float PI = 3.1416f;
 
 void initGL()
 {
-    glClearColor(0.6f, 0.9f, 1.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -14,26 +14,28 @@ void initGL()
     gluOrtho2D(0.0, 100.0, 0.0, 80.0);
 }
 
-void airportGround()
+void circle(float centerX, float centerY, float radiusX, float radiusY)
 {
-    glColor3ub(170, 170, 170);
-    glBegin(GL_QUADS);
-    glVertex2f(0,40);
-    glVertex2f(0,0);
-    glVertex2f(100,0);
-    glVertex2f(100,40);
-    glEnd();
-}
+    // Calculate radius from the two points
+    float radius = sqrt(
+        (radiusX - centerX) * (radiusX - centerX) +
+        (radiusY - centerY) * (radiusY - centerY)
+    );
 
-void runwayThreshold(float x, float y)
-{
-    glColor3ub(255, 255, 255);
+    glBegin(GL_TRIANGLE_FAN);
 
-    glBegin(GL_QUADS);
-        glVertex2f(x,     y);
-        glVertex2f(x + 6, y);
-        glVertex2f(x + 6, y + 2);
-        glVertex2f(x,     y + 2);
+        glVertex2f(centerX, centerY);
+
+        for (int i = 0; i <= 100; i++)
+        {
+            float angle = 2.0f * 3.1416f * i / 100;
+
+            glVertex2f(
+                centerX + radius * cos(angle),
+                centerY + radius * sin(angle)
+            );
+        }
+
     glEnd();
 }
 
@@ -57,6 +59,72 @@ void runwayLight(float x, float y)
         }
     glEnd();
 }
+
+void daySky()
+{
+   glColor3ub(135, 206, 235);
+   glBegin(GL_QUADS);
+   glVertex2f(0,80);
+   glVertex2f(0,40);
+   glVertex2f(100,40);
+   glVertex2f(100,80);
+   glEnd();
+}
+
+void cloud1()
+{
+    glColor3ub(255,255,255);
+    circle(2.4922786882403, 75.5043191689104,3.9772003980637, 74.3320125558917);
+    circle(4.3809799828252, 75.6143314367059,5.6549081256392, 74.4219142562808);
+    circle(6.1255373129155, 75.5786751994564,7.4985183330438, 74.3496158167747);
+}
+
+void cloud2()
+{
+    glColor3ub(255,255,255);
+    circle(45, 75,46.524927664043, 73.2192430839797);
+    circle(47.3427527105824, 74.9105052427417,48.6548311666087, 72.8433777599974);
+    circle(50, 75,48.6548311666087, 72.8433777599974);
+}
+
+void cloud3()
+{
+    glColor3ub(255,255,255);
+    circle(60, 75,61.0663593780385, 73.4578824212047);
+    circle(61.870522586026, 75.1280398575707,62.6449115817596, 73.4329627154597);
+    circle(63.729106307906, 75.264536682381,64.1565307252693, 73.5125216177497);
+    circle(65.5167458678174, 75.0266433804721,65.9333462097456, 73.3003645449764);
+}
+
+void sun()
+{
+    glColor3ub(255, 213, 79);
+    circle(80.0395857191211, 73.0939546426522,81.7936238977046, 70.7134742574314);
+}
+void airportGround()
+{
+    glColor3ub(170, 170, 170);
+    glBegin(GL_QUADS);
+    glVertex2f(0,40);
+    glVertex2f(0,0);
+    glVertex2f(100,0);
+    glVertex2f(100,40);
+    glEnd();
+}
+
+void runwayThreshold(float x, float y)
+{
+    glColor3ub(255, 255, 255);
+
+    glBegin(GL_QUADS);
+        glVertex2f(x,     y);
+        glVertex2f(x + 6, y);
+        glVertex2f(x + 6, y + 2);
+        glVertex2f(x,     y + 2);
+    glEnd();
+}
+
+
 
 void runway()
 {
@@ -149,30 +217,7 @@ void planeDoorCircle(float x, float y)
     glEnd();
 }
 
-void circle(float centerX, float centerY, float radiusX, float radiusY)
-{
-    // Calculate radius from the two points
-    float radius = sqrt(
-        (radiusX - centerX) * (radiusX - centerX) +
-        (radiusY - centerY) * (radiusY - centerY)
-    );
 
-    glBegin(GL_TRIANGLE_FAN);
-
-        glVertex2f(centerX, centerY);
-
-        for (int i = 0; i <= 100; i++)
-        {
-            float angle = 2.0f * 3.1416f * i / 100;
-
-            glVertex2f(
-                centerX + radius * cos(angle),
-                centerY + radius * sin(angle)
-            );
-        }
-
-    glEnd();
-}
 
 void runwayPlane()
 {
@@ -327,6 +372,12 @@ void runwayPlane()
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
+
+    daySky();
+    sun();
+    cloud1();
+    cloud2();
+    cloud3();
 
     airportGround();
     runway();
