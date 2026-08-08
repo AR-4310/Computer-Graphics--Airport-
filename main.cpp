@@ -60,6 +60,16 @@ void runwayLight(float x, float y)
     glEnd();
 }
 
+void text(float x, float y, const char* text)
+{
+    glRasterPos2f(x, y);
+
+    for (int i = 0; text[i] != '\0'; i++)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, text[i]);
+    }
+}
+
 void daySky()
 {
    glColor3ub(135, 206, 235);
@@ -102,6 +112,110 @@ void sun()
     circle(80.0395857191211, 73.0939546426522,81.7936238977046, 70.7134742574314);
 }
 
+void flyingPlane()
+{
+    //body
+    glColor3ub(240, 235, 220);
+    glBegin(GL_POLYGON);
+    glVertex2f(20, 76);
+    glVertex2f(19.3208824315029, 75.4621578812318);
+    glVertex2f(19.9754881988989, 75.4435079026287);
+    glVertex2f(22.4059484295614, 73.3631987221462);
+    glVertex2f(27.9465738706478, 73.2808102397509);
+    glVertex2f(30.0062859305312, 75.2169395760415);
+    glVertex2f(27.9945820171908, 75.2840934976241);
+    glVertex2f(28, 76);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(20, 76);
+    glVertex2f(19.3208824315029, 75.4621578812318);
+    glVertex2f(19.9754881988989, 75.4435079026287);
+    glVertex2f(22.4059484295614, 73.3631987221462);
+    glVertex2f(27.9465738706478, 73.2808102397509);
+    glVertex2f(30.0062859305312, 75.2169395760415);
+    glVertex2f(27.9945820171908, 75.2840934976241);
+    glVertex2f(28, 76);
+    glEnd();
+
+    //wing
+    glColor3ub(180, 190, 200);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(21.9779334244014, 75.5987673765084);
+    glVertex2f(22, 72);
+    glVertex2f(24.9929775518045, 75.5851860966553);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(21.9779334244014, 75.5987673765084);
+    glVertex2f(22, 72);
+    glVertex2f(24.9929775518045, 75.5851860966553);
+    glEnd();
+
+    //back wing
+    glColor3ub(210, 215, 220);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(20, 77);
+    glVertex2f(20, 76);
+    glVertex2f(21, 76);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(20, 77);
+    glVertex2f(20, 76);
+    glVertex2f(21, 76);
+    glEnd();
+
+    //front window
+    glColor3ub(25, 55, 75);
+    glBegin(GL_TRIANGLES);
+    glVertex2f(28, 76);
+    glVertex2f(27.9945820171908, 75.2840934976241);
+    glVertex2f(29.161803985979, 75.2581338172392);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(28, 76);
+    glVertex2f(27.9945820171908, 75.2840934976241);
+    glVertex2f(29.161803985979, 75.2581338172392);
+    glEnd();
+
+    //window-1
+    glColor3ub(40, 90, 130);
+    glBegin(GL_QUADS);
+    glVertex2f(25.5, 75.5);
+    glVertex2f(25.5, 75);
+    glVertex2f(26, 75);
+    glVertex2f(26, 75.5);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(25.5, 75.5);
+    glVertex2f(25.5, 75);
+    glVertex2f(26, 75);
+    glVertex2f(26, 75.5);
+    glEnd();
+
+    //window-2
+    glColor3ub(40, 90, 130);
+    glBegin(GL_QUADS);
+    glVertex2f(26.5, 75.5);
+    glVertex2f(26.5, 75);
+    glVertex2f(27, 75);
+    glVertex2f(27, 75.5);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(26.5, 75.5);
+    glVertex2f(26.5, 75);
+    glVertex2f(27, 75);
+    glVertex2f(27, 75.5);
+    glEnd();
+
+
+
+}
+
 void hill()
 {
     //left hill
@@ -126,6 +240,119 @@ void hill()
     glVertex2f(100, 40);
     glEnd();
 }
+
+void terminal()
+{
+    //body
+    glColor3ub(173, 226, 248);
+
+    glBegin(GL_QUADS);
+        glVertex2f(0, 56);
+        glVertex2f(0, 40);
+        glVertex2f(24, 40);
+        glVertex2f(24, 56);
+    glEnd();
+
+    glColor3ub(0, 0, 0);
+    glLineWidth(2.0f);
+
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(0, 56);
+        glVertex2f(0, 40);
+        glVertex2f(24, 40);
+        glVertex2f(24, 56);
+    glEnd();
+
+    glColor3ub(0, 0, 0);
+    glLineWidth(2.0f);
+
+    glBegin(GL_LINES);
+
+        glVertex2f(4, 40);
+        glVertex2f(4, 56);
+
+        glVertex2f(8, 40);
+        glVertex2f(8, 56);
+
+        glVertex2f(12, 40);
+        glVertex2f(12, 56);
+
+        glVertex2f(16, 40);
+        glVertex2f(16, 56);
+
+        glVertex2f(20, 40);
+        glVertex2f(20, 56);
+
+    glEnd();
+
+
+    glBegin(GL_LINES);
+
+        glVertex2f(0, 44);
+        glVertex2f(24, 44);
+
+        glVertex2f(0, 48);
+        glVertex2f(24, 48);
+
+        glVertex2f(0, 52);
+        glVertex2f(24, 52);
+
+    glEnd();
+
+    //roof
+    glColor3ub(205, 198, 188);
+
+    glBegin(GL_TRIANGLES);
+        glVertex2f(0, 56);
+        glVertex2f(24, 56);
+        glVertex2f(24, 66);
+    glEnd();
+
+    glColor3ub(0, 0, 0);
+    glLineWidth(2.0f);
+
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(0, 56);
+        glVertex2f(24, 56);
+        glVertex2f(24, 66);
+    glEnd();
+
+    glColor3ub(40, 40, 40);
+    text(13.5, 59.0, "TERMINAL");
+
+    //right side portion
+    glColor3ub(173, 226, 248);
+    glBegin(GL_QUADS);
+        glVertex2f(24, 48);
+        glVertex2f(24, 40);
+        glVertex2f(34, 40);
+        glVertex2f(34, 48);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(24, 48);
+        glVertex2f(24, 40);
+        glVertex2f(34, 40);
+        glVertex2f(34, 48);
+    glEnd();
+
+    //right side portion door
+        glColor3ub(59, 110, 138);
+    glBegin(GL_QUADS);
+        glVertex2f(27, 44);
+        glVertex2f(27,40);
+        glVertex2f(31,40);
+        glVertex2f(31,44);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(27, 44);
+        glVertex2f(27,40);
+        glVertex2f(31,40);
+        glVertex2f(31,44);
+    glEnd();
+}
+
 
 void atcTower()
 {
@@ -360,11 +587,11 @@ void hangerPlane()
     glVertex2f(68, 45);
     glEnd();
     glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
     glVertex2f(64, 45);
     glVertex2f(64, 43);
     glVertex2f(68, 43);
     glVertex2f(68, 45);
-    glBegin(GL_LINE_LOOP);
     glEnd();
 
     //rightengine
@@ -419,6 +646,63 @@ void hangerPlane()
     glVertex2f(62,40);
     glEnd();
 
+}
+
+void radar()
+{
+    glColor3ub(38, 35, 10);
+    glBegin(GL_QUADS);
+    glVertex2f(77.1711265163339, 46);
+    glVertex2f(77.2185170777988, 34.0187967765609);
+    glVertex2f(78.7824056061423, 33.9714062150959);
+    glVertex2f(78.7587103254098, 46);
+    glEnd();
+
+    glColor3ub(255,255,255);
+    glBegin(GL_QUADS);
+    glVertex2f(74, 50);
+    glVertex2f(74,46);
+    glVertex2f(82, 46);
+    glVertex2f(82, 50);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(74, 50);
+    glVertex2f(74,46);
+    glVertex2f(82, 46);
+    glVertex2f(82, 50);
+    glEnd();
+
+    glColor3ub(210, 45, 35);
+    glBegin(GL_QUADS);
+    glVertex2f(76,50);
+    glVertex2f(76,46);
+    glVertex2f(78,46);
+    glVertex2f(78,50);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(76, 50);
+    glVertex2f(76,46);
+    glVertex2f(78, 46);
+    glVertex2f(78, 50);
+    glEnd();
+
+
+    glColor3ub(210, 45, 35);
+    glBegin(GL_QUADS);
+    glVertex2f(80,50);
+    glVertex2f(80,46);
+    glVertex2f(82,46);
+    glVertex2f(82,50);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(80, 50);
+    glVertex2f(80,46);
+    glVertex2f(82, 46);
+    glVertex2f(82, 50);
+    glEnd();
 }
 
 void airportGround()
@@ -699,11 +983,15 @@ void display()
     cloud2();
     cloud3();
     hill();
+    flyingPlane();
+    airportGround();
+    terminal();
     atcTower();
     hanger();
     hangerPlane();
+    radar();
 
-    airportGround();
+
     runway();
     runwayPlane();
 
