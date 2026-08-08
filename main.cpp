@@ -716,6 +716,211 @@ void airportGround()
     glEnd();
 }
 
+void fuelTank1()
+{
+    glColor3ub(225, 228, 230);
+    glBegin(GL_QUADS);
+    glVertex2f(16, 34);
+    glVertex2f(16, 32);
+    glVertex2f(24, 32);
+    glVertex2f(24, 34);
+    glEnd();
+    glColor3ub(0,0,0);
+
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(16, 34);
+    glVertex2f(16, 32);
+    glVertex2f(24, 32);
+    glVertex2f(24, 34);
+    glEnd();
+
+    glColor3ub(0,0,0);
+    glBegin(GL_LINES);
+    glVertex2f(16, 34);
+    glVertex2f(18,32);
+
+    glVertex2f(18,34);
+    glVertex2f(20,32);
+
+    glVertex2f(20,34);
+    glVertex2f(22,32);
+
+    glVertex2f(22,34);
+    glVertex2f(24,32);
+
+    glEnd();
+
+    //left wheel
+    glColor3ub(0,0,0);
+    circle(17, 31.5, 17.2897150935442, 31.1061835096129);
+    glColor3ub(255,255,255);
+    circle(17, 31.5, 17.1044158296893, 31.2225524356766);
+
+    //right wheel
+    glColor3ub(0,0,0);
+    circle(23, 31.5, 23.1841100758282, 31.0487705714738);
+    glColor3ub(255,255,255);
+    circle(23, 31.5, 23.0666692081069, 31.2064875175194);
+
+}
+
+void fuelTank2()
+{
+    glPushMatrix();
+    glTranslatef(68.0f, -2.0f, 0.0f);
+    fuelTank1();
+    glPopMatrix();
+}
+
+
+void stair1()
+{
+    //body
+    glColor3ub(201, 161, 161);
+    glBegin(GL_QUADS);
+    glVertex2f(48, 36);
+    glVertex2f(47, 35);
+    glVertex2f(51, 33);
+    glVertex2f(52, 34);
+    glEnd();
+    glColor3ub(0,0,0);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(48, 36);
+    glVertex2f(47, 35);
+    glVertex2f(51, 33);
+    glVertex2f(52, 34);
+    glEnd();
+
+    //stand
+    glColor3ub(0,0,0);
+    glBegin(GL_QUADS);
+    glVertex2f(47, 35);
+    glVertex2f(47, 33);
+    glVertex2f(47.2910976060487, 32.9980200748066);
+    glVertex2f(47.270757028624, 34.8646214856885);
+    glEnd();
+
+    //wheel
+    glColor3ub(0,0,0);
+    circle(51, 32.8, 51.0954213062209, 32.6255886388481);
+    glColor3ub(255,255,255);
+    circle(51, 32.8, 51.0249036543261, 32.7239772374667);
+}
+
+void stair2()
+{
+    glPushMatrix();
+
+    glTranslatef(36.0f, 2.0f, 0.0f);
+
+    stair1();
+
+    glPopMatrix();
+}
+
+void bus()
+{
+    //body
+    glColor3ub(230, 200, 80);
+    glBegin(GL_QUADS);
+        glVertex2f(60, 32);
+        glVertex2f(60, 28);
+        glVertex2f(70, 28);
+        glVertex2f(70, 32);
+    glEnd();
+
+    //body lines
+    glColor3ub(0, 0, 0);
+    glBegin(GL_LINE_LOOP);
+        glVertex2f(60, 32);
+        glVertex2f(60, 28);
+        glVertex2f(70, 28);
+        glVertex2f(70, 32);
+    glEnd();
+
+    // Window 1
+    glColor3ub(180, 220, 240);
+    glBegin(GL_QUADS);
+        glVertex2f(60, 32);
+        glVertex2f(60, 30);
+        glVertex2f(62, 30);
+        glVertex2f(62, 32);
+    glEnd();
+
+    // Window 2
+    glBegin(GL_QUADS);
+        glVertex2f(62, 32);
+        glVertex2f(62, 30);
+        glVertex2f(64, 30);
+        glVertex2f(64, 32);
+    glEnd();
+
+    // Window 3
+    glBegin(GL_QUADS);
+        glVertex2f(64, 32);
+        glVertex2f(64, 30);
+        glVertex2f(66, 30);
+        glVertex2f(66, 32);
+    glEnd();
+
+    // Window 4
+    glBegin(GL_QUADS);
+        glVertex2f(66, 32);
+        glVertex2f(66, 30);
+        glVertex2f(68, 30);
+        glVertex2f(68, 32);
+    glEnd();
+
+    // Window 5
+    glBegin(GL_QUADS);
+        glVertex2f(68, 32);
+        glVertex2f(68, 30);
+        glVertex2f(70, 30);
+        glVertex2f(70, 32);
+    glEnd();
+
+
+    //window lines
+    glColor3ub(0, 0, 0);
+
+    glBegin(GL_LINES);
+
+        // horizontal line
+        glVertex2f(60, 30);
+        glVertex2f(70, 30);
+
+        // vertical divisions
+        glVertex2f(62, 30);
+        glVertex2f(62, 32);
+
+        glVertex2f(64, 30);
+        glVertex2f(64, 32);
+
+        glVertex2f(66, 30);
+        glVertex2f(66, 32);
+
+        glVertex2f(68, 30);
+        glVertex2f(68, 32);
+
+    glEnd();
+
+    //left wheel
+    glColor3ub(0, 0, 0);
+    circle(61, 27, 61.6265996804788, 26.2469226242864);
+
+    glColor3ub(255,255,255);
+    circle(61, 27, 61.188411309017, 26.61167768509);
+
+
+    //right wheel
+    glColor3ub(0, 0, 0);
+    circle(69, 27, 69.3610881423327, 26.0887171784758);
+
+    glColor3ub(255,255,255);
+    circle(69, 27, 69.2026904719394, 26.5394754154072);
+}
+
+
 void runwayThreshold(float x, float y)
 {
     glColor3ub(255, 255, 255);
@@ -727,7 +932,6 @@ void runwayThreshold(float x, float y)
         glVertex2f(x,     y + 2);
     glEnd();
 }
-
 
 
 void runway()
@@ -990,6 +1194,12 @@ void display()
     hanger();
     hangerPlane();
     radar();
+    fuelTank1();
+    fuelTank2();
+    bus();
+
+    stair1();
+    stair2();
 
 
     runway();
